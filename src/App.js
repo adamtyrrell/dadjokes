@@ -1,38 +1,30 @@
-import { useEffect, useState } from "react";
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import DisplayJoke from "./DisplayJoke";
+import { Container } from 'reactstrap';
+import NewJoke from './NewJoke';
+import HeaderComponent from './HeaderComponent';
+
+export let newIndex = Math.floor(Math.random() * 5);
 
 function App() {
-
-
-  const [joke, setJoke] = useState('');
-  const [punchline, setPunchline] = useState('');
-  const generateJoke = e => {
-    window.location.reload(true);
+  const joke = DisplayJoke(); 
+  const generateJoke =  (e) => {
+    window.location.reload();
   }
-  useEffect(() => {
-    const fetchJoke = async () =>
-      await fetch(
-        `https://dad-jokes.p.rapidapi.com/random/joke?rapidapi-key=7429be26efmsh5505ed8608ac5a9p1d7be2jsnd82c3d7312e9`
-      )   
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data.body.[0].setup);
-        console.log(data.body.[0].punchline);
-        setJoke(data.body.[0].setup);
-        setPunchline(data.body.[0].punchline);
-      });
-    fetchJoke();   
-  }, []);
 
   return (
-    <div className="app">
+    <div>
+      <HeaderComponent />
       <center>
         <h1>The Dad Joke Generator</h1>
-        <h2>{joke}</h2>
-        <h3>{punchline}</h3>
-        <button onClick={generateJoke}>Generate Joke</button>
+        <h2>{joke[0]}</h2>
+        <h3>{joke[1]}</h3>       
+        <button className="btn btn-primary" onClick={generateJoke}>Generate Joke</button>
       </center>
+      <NewJoke />
     </div>
+
   );
 }
 
