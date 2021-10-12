@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import React, { useState }from 'react'
-import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, NavebarText} from 'reactstrap';
+import {Collapse, Navbar, NavbarToggler, NavbarBrand, NavItem} from 'reactstrap';
+import { NavLink } from 'react-router-dom';
 
 function HeaderComponent() {
     const [isOpen, setIsOpen] = useState(false);
@@ -13,13 +14,13 @@ function HeaderComponent() {
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                     <NavItem>
-                        <NavLink>Home</NavLink>
+                        <NavLink to="/home">Home</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink>Submit a Joke</NavLink>
+                        <NavLink to="newjoke" >Submit a Joke</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink>Contact</NavLink>
+                        <NavLink to="/home">Contact</NavLink>
                     </NavItem>
                 </Collapse>
             </Navbar>
