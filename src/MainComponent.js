@@ -12,7 +12,7 @@ function Main () {
                 <Switch>
                     <Route path ='/home' component={Home}/>
                     <Route path ='/newjoke' component={NewJoke} />
-                    <Route path='contact' component={Contact} />
+                    <Route path='/contact' component={Contact} />
                     <Redirect to='/home' />
                 </Switch>
         </div>

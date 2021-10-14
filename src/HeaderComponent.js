@@ -20,7 +20,7 @@ function HeaderComponent() {
                         <NavLink to="newjoke" >Submit a Joke</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink to="/home">Contact</NavLink>
+                        <NavLink to="/contact">Contact</NavLink>
                     </NavItem>
                 </Collapse>
             </Navbar>
