@@ -10,8 +10,8 @@ function Home() {
         <div>
         <center>
           <h1>The Dad Joke Generator</h1>
-          <h2>{joke[0]}</h2>
-          <h3>{joke[1]}</h3>       
+
+          <div>{joke}</div>      
           <button className="btn btn-primary" onClick={generateJoke}>Generate Joke</button>
         </center>
       </div>
