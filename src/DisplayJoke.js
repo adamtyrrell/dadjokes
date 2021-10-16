@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { newIndex } from "./App";
 import './DisplayJoke.css';
+
+/**/
+const newIndex = Math.floor(Math.random() * 10);
 
 function DisplayJoke() {
     const [isLoading, setIsLoading] = useState(false);
     const [hasError, setHasError] = useState(false);
     const [joke, setJoke] = useState('');
+    
     useEffect((e) => {
         setIsLoading(true);
         setHasError(false);
@@ -16,23 +19,22 @@ function DisplayJoke() {
                 )   
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data);
                     setJoke(data);
                 })
             } catch (error) {
                 setHasError (true);
             }
             setIsLoading(false); 
-        };
-            fetchJoke();  
-        }, []);
+        };   
+            fetchJoke(); 
+        }, [newIndex]);
 
     return (
         <React.Fragment>
             {hasError && <p>Whoops! Something went wrong!</p>}
             {isLoading ? (<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
             <circle cx="50" cy="50" r="45"/>
-            </svg>) : (<div><h2>{joke.setup}</h2><h3>{joke.punchline}</h3></div>)}
+            </svg>) : (<div><h2>{joke.setup}</h2><h3>{joke.punchline}</h3><h4>Likes: {joke.likes}</h4></div>)}
         </React.Fragment>
     );
 }
