@@ -1,4 +1,4 @@
-svg {
+.loader {
   animation: 2s linear infinite svg-animation;
   max-width: 100px;
 }

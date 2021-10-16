@@ -1,7 +1,7 @@
 import React from 'react'
 import HeaderComponent from './HeaderComponent'
 import Home from './HomeComponent';
-import NewJoke from './NewJoke';
+import NewJoke from '../NewJoke';
 import Contact from './ContactComponent';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
