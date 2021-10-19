@@ -2,8 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url(//db.onlinewebfonts.com/c/240a7cb10b49b02c94ceddc459d385a9?family=Gagalin);
+@font-face {
+  font-family: "Gagalin";
+  src: url("//db.onlinewebfonts.com/t/240a7cb10b49b02c94ceddc459d385a9.eot");
+  src: url("//db.onlinewebfonts.com/t/240a7cb10b49b02c94ceddc459d385a9.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/240a7cb10b49b02c94ceddc459d385a9.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/240a7cb10b49b02c94ceddc459d385a9.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/240a7cb10b49b02c94ceddc459d385a9.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/240a7cb10b49b02c94ceddc459d385a9.svg#Gagalin")
+      format("svg");
+}
+
 @layer base {
   body {
-    @apply bg-[#06202A] text-gray-300;
+    @apply bg-[#16213E] text-gray-300;
   }
+}
+
+.dad-logo {
+  height: 10%;
+}
+
+.card-title {
+  font-family: "Gagalin";
+  font-size: 25px;
+  margin-top: 30px;
+}
+
+.card-text {
+  font-family: "Kollektif";
+  font-size: 22px;
+  margin-top: 50px;
+  letter-spacing: 1px;
 }

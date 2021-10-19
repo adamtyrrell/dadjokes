@@ -9,9 +9,8 @@ function Home() {
     return (
         <div>
         <center>
-          <h1>The Dad Joke Generator</h1>
-
-          <div>{joke}</div>      
+          
+          <div className="card-text">{joke}</div>      
           <button onClick={generateJoke}>Generate Joke</button>
         </center>
       </div>
