@@ -12,7 +12,7 @@ function Home() {
           <h1>The Dad Joke Generator</h1>
 
           <div>{joke}</div>      
-          <button className="btn btn-primary" onClick={generateJoke}>Generate Joke</button>
+          <button onClick={generateJoke}>Generate Joke</button>
         </center>
       </div>
     )
