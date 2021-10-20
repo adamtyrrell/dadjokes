@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import DisplayJoke from "./DisplayJoke";
 import ReactCardFlip from 'react-card-flip';
-import FrontCard from './FrontCard';
 
 function Home() {
     const joke = DisplayJoke(); 
