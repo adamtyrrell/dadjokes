@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './DisplayJoke.css';
+import {ThumbUpIcon, ShareIcon} from '@heroicons/react/outline';
 
 /**/
 const newIndex = Math.floor(Math.random() * 10);
@@ -34,7 +35,8 @@ function DisplayJoke() {
             {hasError && <p>Whoops! Something went wrong!</p>}
             {isLoading ? (<svg className="loader" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
             <circle cx="50" cy="50" r="45"/>
-            </svg>) : (<div><h2>{joke.setup}</h2><h3>{joke.punchline}</h3><h4>Likes: {joke.likes}</h4></div>)}
+            </svg>) : (<div><h2>{joke.setup}</h2><h3>{joke.punchline}</h3>
+            <div className="flex justify-evenly max-w-sm m-3"><ThumbUpIcon className="h-8 m-3 hover:cursor-pointer hover:animate-pulse"/><h5 className="m-3">Likes: {joke.likes}</h5><ShareIcon className="h-8 m-3 hover:cursor-pointer hover:animate-pulse"/></div></div>)}
         </React.Fragment>
     );
 }
