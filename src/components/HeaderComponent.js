@@ -11,7 +11,7 @@ function HeaderComponent() {
             <div className="flex flex-grow justify-evenly max-w-2xl">
                 <NavLink to="/home"><HeaderLink title="HOME" Icon={HomeIcon}/></NavLink>
                 <HeaderLink title="POPULAR" Icon={StarIcon}/>
-                <HeaderLink title="SUBMIT" Icon={MailIcon}/>
+                <NavLink to="/contact"><HeaderLink title="SUBMIT" Icon={MailIcon}/></NavLink>
                 <NavLink to="/newjoke"><HeaderLink title="LOGIN" Icon={UserIcon}/></NavLink>
             </div>
             <div className="object-contain flex justify-evenly dad-logo">
