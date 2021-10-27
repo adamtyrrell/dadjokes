@@ -1,6 +1,7 @@
 import React from "react"
+import Auth from "./components/Auth";
 
-function NewJoke() {
+function NewJoke(props) {
 
    const afterSubmit = e => {
     window.location.reload(true)
@@ -24,6 +25,11 @@ function NewJoke() {
                     </div>
                 </form>
             </div>
+            <button onClick={() =>{
+                Auth.logout(() => {
+                    props.history.push("/home");
+                });
+            }}>Logout</button>
         </center>
     );
 }
