@@ -3,16 +3,32 @@ import './DisplayJoke.css';
 import {ThumbUpIcon, ShareIcon} from '@heroicons/react/outline';
 
 /**/
-const newIndex = Math.floor(Math.random() * 10);
+
+
+
+
+
 
 function DisplayJoke() {
     const [isLoading, setIsLoading] = useState(false);
     const [hasError, setHasError] = useState(false);
     const [joke, setJoke] = useState('');
+    const [totalCount, setTotalCount] = useState('');
     
     useEffect((e) => {
         setIsLoading(true);
         setHasError(false);
+        const resp = async () => {await fetch('http://localhost:3000/dadjokes/')
+        .then((res) => res.json())
+        .then((data) =>
+         setTotalCount(Object.keys(data).length)
+        )
+        console.log(totalCount);
+    };
+
+        const newIndex = Math.floor(Math.random() * totalCount);
+        console.log(newIndex);
+
         const fetchJoke = async () => {
             try {
                 await fetch(
@@ -28,8 +44,10 @@ function DisplayJoke() {
             setIsLoading(false); 
         };   
             fetchJoke(); 
-        }, []);
+            resp();
+        }, [totalCount]);
 
+        
     return (
         <React.Fragment>
             {hasError && <p>Whoops! Something went wrong!</p>}
