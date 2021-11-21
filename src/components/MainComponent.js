@@ -13,7 +13,7 @@ function Main () {
             <HeaderComponent />
                 <Switch>
                     <Route path ='/home' component={Home}/>
-                    <Route path ='/login' component={LoginPage} />
+                    <Route path ='/login' component={NewJoke} />
                     <ProtectedRoute
                         exact
                         path="/admin"

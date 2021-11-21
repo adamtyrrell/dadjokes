@@ -1,37 +1,69 @@
 import React from "react"
+import { Component } from "react";
 import Auth from "./components/Auth";
 
-function NewJoke(props) {
+class NewJoke extends Component {
 
-   const afterSubmit = e => {
-    window.location.reload(true)
-   }
+    constructor(props) {
+        super(props);
+        this.state = {
+            setup:'',
+            punchline:''
+        };
 
-    return (
-        <center>
-            <div className="max-w-sm">
-                <form className="flex flex-col bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST" action="http://localhost:3000/dadjokes/">
-                    <h3 className="text-black font-bold mb-4">Submit a New Joke</h3>
-                    <div className="mb-4">
-                        <label className="block text-black text-sm font-bold mb-2" htmlFor="setup">Setup</label>
-                        <textarea rows="5"className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="setup"></textarea>
-                    </div>
-                    <div className="block text-black text-sm font-bold mb-2">
-                        <label htmlFor="punchline">Punchline</label>
-                        <textarea rows="5" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="punchline"></textarea>
-                    </div>
-                    <div>
-                        <input className="bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" value="Submit" onClick={afterSubmit}/>
-                    </div>
-                </form>
-            </div>
-            <button onClick={() =>{
-                Auth.logout(() => {
-                    props.history.push("/home");
-                });
-            }}>Logout</button>
-        </center>
-    );
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(event) {
+        const target = event.target;
+        const name = target.name;
+        const value = target.value;
+        this.setState({
+            [name]:value
+        });
+        console.log(this.state);
+    }
+
+    handleSubmit(event) {
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", 'http://localhost:3000/dadjokes/', true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify({
+            setup: this.state.setup,
+            punchline: this.state.punchline,
+            likes: 0,
+        }));
+        event.preventDefault();
+        this.setState({
+        setup:  '',
+        punchline: ''
+        });
+    }
+
+    render(){
+        return (
+            <center>
+                <div className="max-w-sm">
+                    <form className="flex flex-col bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                        <h3 className="text-black font-bold mb-4">Submit a New Joke</h3>
+                        <div className="mb-4">
+                            <label className="block text-black text-sm font-bold mb-2" htmlFor="setup">Setup</label>
+                            <textarea value={this.state.setup} name="setup" onChange={this.handleChange} rows="5"className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="setup"></textarea>
+                        </div>
+                        <div className="block text-black text-sm font-bold mb-2">
+                            <label htmlFor="punchline">Punchline</label>
+                            <textarea value={this.state.punchline} name="punchline" onChange={this.handleChange} rows="5" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="punchline"></textarea>
+                        </div>
+                        <div>
+                            <button onClick={this.handleSubmit} className="bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
+                        </div>
+                    </form>
+                </div>
+                <button>Logout</button>
+            </center>
+        );
+    }
 }
 
 export default NewJoke
