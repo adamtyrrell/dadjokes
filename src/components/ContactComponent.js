@@ -1,9 +1,6 @@
 
 function Contact() {
 
-    function handleSubmit() {
-        window.location.reload();
-    }
 
     return (
         <center>
@@ -19,7 +16,7 @@ function Contact() {
                         <textarea rows="5" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="punchline"></textarea>
                     </div>
                     <div>
-                        <input className="bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" value="Submit" onSubmit={handleSubmit}/>
+                        <input className="bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" value="Submit" onSubmit="setTimeout(function () {window.loaction.reload(); }, 10)"/>
                     </div>
                 </form>
             </div>

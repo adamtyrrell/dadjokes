@@ -42,8 +42,6 @@ function DisplayJoke() {
             resp();
         }, [totalCount]);
 
-        console.log(jokeLikes);
-
         function handleLikes(){
             let jokeLikes2 =jokeLikes;
             let upVote = ++ jokeLikes2;

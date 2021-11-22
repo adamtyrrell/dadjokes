@@ -1,6 +1,9 @@
 import React from "react"
 import { Component } from "react";
 
+function handleReload() {
+    window.location.reload();
+}
 class NewJoke extends Component {
 
     constructor(props) {
@@ -25,10 +28,15 @@ class NewJoke extends Component {
         console.log(this.state);
     }
 
+
+
     handleSubmit(event) {
         const xhr = new XMLHttpRequest();
-        xhr.open("POST", 'https://hooks.zapier.com/hooks/catch/11338595/bd0awfe/', true);
+        xhr.open("POST", 'https://hooks.zapier.com/hooks/catch/11338595/bd0awfe/silent/', true);
         xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.addEventListener('load', function(event) {
+            handleReload();
+        })
         xhr.send(JSON.stringify({
             setup: this.state.setup,
             punchline: this.state.punchline,
