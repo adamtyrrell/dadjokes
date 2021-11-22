@@ -32,7 +32,7 @@ class NewJoke extends Component {
 
     handleSubmit(event) {
         const xhr = new XMLHttpRequest();
-        xhr.open("POST", 'https://hooks.zapier.com/hooks/catch/11338595/bd0awfe/silent/', true);
+        xhr.open("POST", 'https://hooks.zapier.com/hooks/catch/11338595/bd0awfe/', true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.addEventListener('load', function(event) {
             handleReload();
