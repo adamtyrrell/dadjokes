@@ -4,7 +4,6 @@ import Home from './HomeComponent';
 import NewJoke from '../NewJoke';
 import Contact from './ContactComponent';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import LoginPage from './LoginPage';
 import { ProtectedRoute } from './protected.route';
 
 function Main () {
