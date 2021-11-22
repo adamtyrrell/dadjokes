@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import './DisplayJoke.css';
 import {ThumbUpIcon, ShareIcon} from '@heroicons/react/outline';
 
-/**/
-
 function DisplayJoke() {
     const [isLoading, setIsLoading] = useState(false);
     const [hasError, setHasError] = useState(false);
@@ -19,13 +17,11 @@ function DisplayJoke() {
         .then((res) => res.json())
         .then((data) =>
          setTotalCount(Object.keys(data).length)
-        )
-        
+        )        
     };
 
         const newIndex = Math.floor(Math.random() * totalCount);
         
-
         const fetchJoke = async () => {
             try {
                 await fetch(

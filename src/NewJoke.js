@@ -8,7 +8,8 @@ class NewJoke extends Component {
         super(props);
         this.state = {
             setup:'',
-            punchline:''
+            punchline:'',
+            likes:0
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -32,7 +33,7 @@ class NewJoke extends Component {
         xhr.send(JSON.stringify({
             setup: this.state.setup,
             punchline: this.state.punchline,
-            likes: 0,
+            likes: this.state.likes,
         }));
         event.preventDefault();
         this.setState({
