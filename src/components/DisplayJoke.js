@@ -13,7 +13,7 @@ function DisplayJoke() {
     useEffect((e) => {
         setIsLoading(true);
         setHasError(false);
-        const resp = async () => {await fetch('http://localhost:3000/dadjokes/')
+        const resp = async () => {await fetch('https://the-dad-jokes-api.herokuapp.com/dadjokes')
         .then((res) => res.json())
         .then((data) =>
          setTotalCount(Object.keys(data).length)
@@ -25,12 +25,12 @@ function DisplayJoke() {
         const fetchJoke = async () => {
             try {
                 await fetch(
-                `http://localhost:3000/dadjokes/${newIndex}`
+                `https://the-dad-jokes-api.herokuapp.com/dadjokes/${newIndex}`
                 )   
                 .then((res) => res.json())
                 .then((data) => {
                     setJoke(data);
-                    setJokeUrl(`http://localhost:3000/dadjokes/${newIndex}`);
+                    setJokeUrl(`https://the-dad-jokes-api.herokuapp.com/dadjokes/${newIndex}`);
                     setJokeLikes(data.likes);
                 })
             } catch (error) {

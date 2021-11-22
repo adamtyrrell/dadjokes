@@ -1,6 +1,5 @@
 import React from "react"
 import { Component } from "react";
-import Auth from "./components/Auth";
 
 class NewJoke extends Component {
 
@@ -28,7 +27,7 @@ class NewJoke extends Component {
 
     handleSubmit(event) {
         const xhr = new XMLHttpRequest();
-        xhr.open("POST", 'http://localhost:3000/dadjokes/', true);
+        xhr.open("POST", 'https://hooks.zapier.com/hooks/catch/11338595/bd0awfe/', true);
         xhr.setRequestHeader('Content-Type', 'application/json');
         xhr.send(JSON.stringify({
             setup: this.state.setup,
@@ -50,11 +49,11 @@ class NewJoke extends Component {
                         <h3 className="text-black font-bold mb-4">Submit a New Joke</h3>
                         <div className="mb-4">
                             <label className="block text-black text-sm font-bold mb-2" htmlFor="setup">Setup</label>
-                            <textarea value={this.state.setup} name="setup" onChange={this.handleChange} rows="5"className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="setup"></textarea>
+                            <textarea value={this.state.setup} name="setup" onChange={this.handleChange} rows="5"className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
                         </div>
                         <div className="block text-black text-sm font-bold mb-2">
                             <label htmlFor="punchline">Punchline</label>
-                            <textarea value={this.state.punchline} name="punchline" onChange={this.handleChange} rows="5" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="punchline"></textarea>
+                            <textarea value={this.state.punchline} name="punchline" onChange={this.handleChange} rows="5" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
                         </div>
                         <div>
                             <button onClick={this.handleSubmit} className="bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
